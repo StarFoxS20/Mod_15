@@ -1,0 +1,21 @@
+package Fabrica;
+
+public abstract class Fabrica
+{
+
+    public Car create(String requestGrade)
+    {
+        Car car = retrieveCar(requestGrade);
+        car = prepareCar(car);
+        return car;
+    }
+
+    private Car prepareCar(Car car)
+    {
+        car.clean();
+        car.mechanicCheck();
+        car.fuelCar();
+        return car;
+    }
+    abstract Car retrieveCar(String requestGrade);
+}
